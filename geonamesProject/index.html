@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Miguel Alvarez">
+    <meta name="description" content="Geonames APIs in use">
+    <meta name="keywords" content="API, Geonames">
+    <title>Using Geonames APIs</title>
+    <link rel="stylesheet" href="resources/css/styles.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico"/>
+
+</head>
+
+<body>
+
+    <main class="main">
+
+        <table class="table">
+
+            <caption>Geonames Project</caption>
+
+            <tr>
+
+                <th scope="col">API</th>
+                <th scope="col" colspan="2">API description</th>
+
+            </tr>
+
+            <tr>
+
+                <td class="name">Street Name Lookup</td>
+                <td>
+                    <p>Select a spanish city and a road type</p>
+                    <p>Returns a list of street names starting with the road type!</p>
+
+                    <label for="city">City/Region:</label>
+                    <select name="city" id="city">
+                        <!-- values represent AdminCode1 API value, that is how we get the city/area --> 
+                        <option value="51">Andalusia</option>
+                        <option value="29">Madrid</option>
+                        <option value="56">Catalonia</option>
+                        <option value="60">Valencia</option>
+                        <option value="59">Basque Country</option>
+                    </select><br><br>
+
+                    <label for="road">Road type:</label>
+                    <select name="road" id="road">
+                        <!--In this example I am using spanish values to test the API:
+                        calle = street | avenida = avenue | plaza = square | glorieta = roundabout -->
+                        <option value="calle">Calle</option>
+                        <option value="avenida">Avenida</option>
+                        <option value="plaza">Plaza</option>
+                        <option value="glorieta">Glorieta</option>
+                    </select>
+                </td>    
+                <td><input id="streetSubmit" type="submit" value="Submit"></td>
+
+            </tr>
+
+            <tr>
+
+                <td class="name">Wikipedia Search</td>
+                <td>
+                    <p>Returns 5 wikipedia entries found for the search term!</p>
+                    <label for="wikiTerm">Search term:</label>
+                    <input type="text" id="wikiTerm" name="wikiTerm" placeholder="Leeds" required>
+                </td>
+                <td><input id="wikiSubmit" type="submit" value="Submit"></td>
+
+            </tr>
+
+            <tr>
+                <td class="name">Timezone</td>
+                <td>
+                    <p>Returns current time, timezone, sunset and sunrise of the location you choose! </p>
+                    <label for="location">Location:</label>
+                    <select name="location" id="location">
+                        <!-- Values represent latitude and longitud of cities/location -->
+                        <option value="lat=40.4&lng=-3.7">Spain</option>
+                        <option value="lat=55.3&lng=-3.4">United Kingdom</option>
+                        <option value="lat=40.7&lng=-74.005">New York</option>
+                        <option value="lat=36.2&lng=138.25">Japan</option>
+                        <option value="lat=-25.27&lng=133.77">Australia</option>
+                        <option value="lat=47.01&lng=10.2">Austria</option>
+                    </select>
+                </td>
+                <td><input id="submitTimezone" type="submit" value="Submit"></td>
+            </tr>
+
+            <tr>
+                <td colspan="3">
+                    <img class="imgLoad" width="256" height="256" src="images/loading.gif" alt="Loading image">
+                    <ul style="list-style:none;" id="results">
+                        <li>Results will be displayed here</li>
+                    </ul>
+                </td>
+            </tr>
+
+        </table>
+        
+    </main>
+    <div id="preloader"></div>
+    <script src="resources/libraries/jquery-3.5.1.min.js"></script>
+    <script src="resources/js/script.js"></script>
+</body>
+
+</html>
