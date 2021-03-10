@@ -1,2 +1,2 @@
 # geonames-project
-Geonames APIs in use
+Retrieving data from GEONAMES APIs using AJAX calls
